@@ -1,5 +1,5 @@
 FROM jupyter/notebook
-MAINTAINER Docker@JasonGreen.Name
+MAINTAINER Rise-Dockerfile@JasonGreen.Name
 
 # Update Base Install.
 RUN apt-get update -y \

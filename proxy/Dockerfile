@@ -1,6 +1,6 @@
 # TODO: once working again, upgrade to latest version (now 1.11.1)
 FROM nginx:1.9.14
-MAINTAINER HW-Proxy-Dockerfile@JasonGreen.Name
+MAINTAINER Proxy-Dockerfile@JasonGreen.Name
 
 ENV HW_PROXY_IMAGE_BUILT_AFTER 20160803-0800
 

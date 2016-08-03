@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER BaseDockerfile@JasonGreen.Name
+MAINTAINER Base-Dockerfile@JasonGreen.Name
 ENV BASE_IMAGE_BUILT_AFTER 20160802-1700
 
 # Update & Upgrade

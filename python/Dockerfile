@@ -1,5 +1,5 @@
 FROM gjigsaw/base:20160802-1700
-MAINTAINER PythonDockerFile@JasonGreen.Name
+MAINTAINER Python-Dockerfile@JasonGreen.Name
 ENV PYTHON_IMAGE_BUILT_AFTER 20160802-1700
 
 # 2
