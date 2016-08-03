@@ -1,5 +1,6 @@
-FROM gjigsaw/base:20160310-1600
-MAINTAINER Docker@JasonGreen.Name
+FROM gjigsaw/base:20160802-1700
+MAINTAINER PythonDockerFile@JasonGreen.Name
+ENV PYTHON_IMAGE_BUILT_AFTER 20160802-1700
 
 # 2
 RUN apt-get install -y \
@@ -24,3 +25,4 @@ RUN pip3 install \
 # Distribute
 RUN apt-get install -y \
     python-distribute
+

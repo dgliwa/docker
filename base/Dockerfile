@@ -1,5 +1,6 @@
 FROM ubuntu:latest
-MAINTAINER Docker@JasonGreen.Name
+MAINTAINER BaseDockerfile@JasonGreen.Name
+ENV BASE_IMAGE_BUILT_AFTER 20160802-1700
 
 # Update & Upgrade
 RUN apt-get update -y; \
@@ -35,7 +36,8 @@ RUN apt-get install -y \
     apt-xapian-index \
     build-essential \
     libxml2-dev \
-    strace
+    strace \
+    unzip
 
 # Locale
 RUN apt-get install -y locales \
