@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 MAINTAINER Base-Dockerfile@JasonGreen.Name
-ENV BASE_IMAGE_BUILT_AFTER 20161020-1800
+ENV BASE_IMAGE_BUILT_AFTER 20170924-1200
 
 # Update & Upgrade
 RUN apt-get update -y; \
@@ -9,8 +9,8 @@ RUN apt-get update -y; \
 
 # Code manipulation
 RUN apt-get install -y \
-    git \
     gcc \
+    git \
     make
 
 # Editors
