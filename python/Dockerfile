@@ -19,8 +19,8 @@ RUN apt-get install -y \
     python3-pip
 
 RUN pip3 install \
-    ipython \
-    pdb
+    ipython
+
 
 # Distribute
 RUN apt-get install -y \
