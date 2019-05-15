@@ -1,0 +1,7 @@
+docker run \
+    -it \
+    --rm \
+    --mount type=bind 
+        source="$(pwd)", \
+        target=/local/ \
+    gjigsaw/python3:20190508-1700
