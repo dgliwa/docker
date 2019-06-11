@@ -4,4 +4,4 @@ docker run \
     --mount type=bind 
         source="$(pwd)", \
         target=/local/ \
-    gjigsaw/python3:20190508-1700
+    gjigsaw/python3:20190603-2000
