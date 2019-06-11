@@ -15,7 +15,7 @@ RUN apt-get install -y \
 
 # Editors
 RUN apt-get install -y \
-    emacs \
+    emacs-nox \
     vim
 
 # File transport
