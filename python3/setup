@@ -1,0 +1,2 @@
+alias python3="$DOCKER/python3/run python3"
+alias ipython3="$DOCKER/python3/run ipython"
