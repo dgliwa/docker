@@ -1,0 +1,6 @@
+alias ds.help='docker-swarm help'
+alias ds.create='docker-swarm create'
+alias ds.list='docker-swarm list'
+alias ds.ls='docker-swarm list'
+alias ds.join='docker-swarm join'
+alias ds.manage='docker-swarm manage'

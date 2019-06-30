@@ -1,0 +1,33 @@
+# Setup docker-machine aliases
+alias dm.create='docker-machine create'
+alias dm.config='docker-machine config'
+alias dm.env='docker-machine env'
+alias dm.help='docker-machine help'
+alias dm.inspect='docker-machine inspect'
+alias dm.ip='docker-machine ip'
+alias dm.kill='docker-machine kill'
+alias dm.ls='docker-machine ls'
+alias dm.regenerate-certs='docker-machine regenerate-certs'
+alias dm.restart='docker-machine restart'
+alias dm.rm='docker-machine rm'
+alias dm.ssh='docker-machine ssh'
+alias dm.scp='docker-machine scp'
+alias dm.start='docker-machine start'
+alias dm.stop='docker-machine stop'
+alias dm.upgrade='docker-machine upgrade'
+alias dm.url='docker-machine url'
+alias dm.version='docker-machine --version'
+
+
+# Set machine against which this environemnt will execute docker commands.
+function docker_use () {
+    eval "$(docker-machine env $*)"
+}
+# Return name of machine against which this environemnt will execute docker commands.
+function docker_used () {
+    docker info 2> /dev/null | grep 'Name:' | awk '{print $2}'
+}
+# Clear the docker environment variables.
+function docker_unuse () {
+    eval "$(docker-machine env -u)"
+}
