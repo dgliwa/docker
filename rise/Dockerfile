@@ -1,14 +1,6 @@
-FROM jupyter/notebook
+FROM jupyter/minimal-notebook
 MAINTAINER Rise-Dockerfile@JasonGreen.Name
-
-# Update Base Install.
-RUN apt-get update -y \
- && apt-get upgrade -y \
- && apt-get clean
-
-# Install wget
-RUN apt-get install -y \
-    wget
+ENV IMAGE_BUILT_AFTER 20190829-1700
 
 # RISE (Reveal.js - Jupyter/IPython Slideshow Extension)
 RUN wget https://github.com/pdonorio/RISE/archive/master.tar.gz \
@@ -19,4 +11,3 @@ RUN wget https://github.com/pdonorio/RISE/archive/master.tar.gz \
 RUN pip install --upgrade pip
 
 CMD jupyter notebook
-

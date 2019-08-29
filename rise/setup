@@ -1,0 +1,8 @@
+# https://github.com/damianavila/RISE
+
+alias rise="~/docker/rise/run"
+
+# Browse to the local RISE server
+function browse_rise() {
+    browse http://dvb.jasongreen.name:8888
+}
