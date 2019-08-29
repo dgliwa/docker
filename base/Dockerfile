@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 MAINTAINER Base-Dockerfile@JasonGreen.Name
-ENV BASE_IMAGE_BUILT_AFTER 20190508-1700
+ENV BASE_IMAGE_BUILT_AFTER 20190829-1700
 
 # Update & Upgrade
 RUN apt-get update -y; \
