@@ -1,0 +1,2 @@
+alias ffid=firefox_in_docker
+alias firefox_in_docker="$DOCKER/firefox/run"
