@@ -1,5 +1,7 @@
-docker_run_x \
+function xclock() {
+    docker_run_x \
        --name xclock \
        --hostname xclock \
        gjigsaw/xclock:20190826-1700 \
        xclock
+}

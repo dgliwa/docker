@@ -1,3 +1,15 @@
-alias python2-run="$DOCKER/python2/run"
-alias python2="python2-run python2"
-alias ipython2="python2-run ipython"
+function python2() { python2-run python2 }
+
+function ipython2={ python2-run ipython }
+export -f ipython2
+
+function python2-run() {
+  docker run \
+    --rm \
+    --tty \
+    --interactive \
+    --mount type=bind,source="$(pwd)",target=/local/ \
+    gjigsaw/python2:20190829-1700 \
+    $@
+}
+export -f python2-run

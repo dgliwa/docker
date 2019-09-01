@@ -1,4 +1,14 @@
-alias python3-run="$DOCKER/python3/run"
-alias python3="python3-run python3"
-alias ipython3="python3-run ipython"
+function python3-run() {
+  docker run \
+    -it \
+    --rm \
+    --mount type=bind,source="$(pwd)",target=/local/ \
+    gjigsaw/python3:20190630-0100 \
+    $@
+}
+export -f python3-run
 
+function ipython3() { python3-run ipython }
+export -f ipython3
+
+function python3() { python3-run python3 }

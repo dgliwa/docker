@@ -1,2 +1,8 @@
-alias gource="~/docker/gource/run "
-
+function gource() {
+    docker_run_x \
+       --name gource \
+       --hostname gource \
+       --volume "$(pwd):/local" \
+       gjigsaw/gource:20190829-1700 \
+       gource
+}
