@@ -1,6 +1,7 @@
 docker run \
-    -it \
     --rm \
+    --tty \
+    --interactive \
     --mount type=bind,source="$(pwd)",target=/local/ \
     gjigsaw/python2:20190829-1700 \
     $@
