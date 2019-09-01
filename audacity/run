@@ -1,0 +1,6 @@
+docker_run_x \
+       --name audacity \
+       --hostname audactiy \
+       --volume "$(pwd):/local" \
+       gjigsaw/audacity:20190829-1700 \
+       $@
