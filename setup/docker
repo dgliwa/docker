@@ -19,3 +19,19 @@ alias d.use='docker_use'
 alias d.used='docker_used'
 alias d.unuse='docker_unuse'
 alias d.version='docker --version && docker version'
+
+alias drx='docker_run_x'
+
+# Find and display details on an executable
+function docker_run_x() {
+    docker run \
+        --rm \
+	--tty \
+	--interactive \
+	--device /dev/snd \
+	-e DISPLAY \
+	-e XHOST \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	"$@"
+}
+export -f docker_run_x

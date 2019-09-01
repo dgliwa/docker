@@ -1,10 +1,5 @@
-docker run \
-       --rm \
-       --tty \
-       --interactive \
-       -e DISPLAY=$DISPLAY \
-       -e XHOST=100.115.92.200 \
-       -v /tmp/.X11-unix:/tmp/.X11-unix \
+docker_run_x \
        --name xclock \
+       --hostname xclock \
        gjigsaw/xclock:20190826-1700 \
        xclock

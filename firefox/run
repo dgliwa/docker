@@ -1,10 +1,4 @@
 docker run \
-       --rm \
-       -ti \
        --shm-size 2g \
-       --device /dev/snd \
-       -e XHOST=100.115.92.200 \
-       -e DISPLAY=$DISPLAY \
-       -v /tmp/.X11-unix:/tmp/.X11-unix \
        gjigsaw/firefox:20190826-1700 \
        $@
