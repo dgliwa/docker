@@ -20,9 +20,6 @@ alias d.used='docker_used'
 alias d.unuse='docker_unuse'
 alias d.version='docker --version && docker version'
 
-alias drx='docker_run_x'
-
-# Find and display details on an executable
 function docker_run_x() {
     docker run \
         --rm \
@@ -35,3 +32,4 @@ function docker_run_x() {
 	"$@"
 }
 export -f docker_run_x
+alias drx=docker_run_x
