@@ -3,7 +3,7 @@ function python3-run() {
     -it \
     --rm \
     --mount type=bind,source="$(pwd)",target=/local/ \
-    gjigsaw/python3:20190630-0100 \
+    dgliwa/python3:20190630-0100 \
     $@
 }
 export -f python3-run

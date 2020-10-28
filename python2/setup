@@ -9,7 +9,7 @@ function python2-run() {
     --tty \
     --interactive \
     --mount type=bind,source="$(pwd)",target=/local/ \
-    gjigsaw/python2:20190829-1700 \
+    dgliwa/python2:20190829-1700 \
     $@
 }
 export -f python2-run

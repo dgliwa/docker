@@ -3,6 +3,6 @@ function gource() {
        --name gource \
        --hostname gource \
        --volume "$(pwd):/local" \
-       gjigsaw/gource:20190829-1700 \
+       dgliwa/gource:20190829-1700 \
        gource
 }

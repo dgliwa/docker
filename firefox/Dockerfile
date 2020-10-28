@@ -1,6 +1,6 @@
-FROM gjigsaw/base:20190826-1700
-MAINTAINER firefox-Dockerfile@JasonGreen.Name
-ENV IMAGE_BUILT_AFTER 20190826-1700
+FROM dgliwa/base:20201028
+LABEL maintainer="firefox-Dockerfile@DerekGliwa.Name"
+ENV IMAGE_BUILT_AFTER 20201028
 
 RUN apt-get install -y \
     alsa-utils \

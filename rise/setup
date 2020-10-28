@@ -9,5 +9,5 @@ function rise() {
        --publish ${JUPYTER_PORT}:8888 \
        --volume "$(pwd):/notebooks" \
        --name rise \
-       gjigsaw/rise:20190829-1700
+       dgliwa/rise:20190829-1700
 }

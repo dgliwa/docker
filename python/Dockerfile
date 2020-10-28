@@ -1,6 +1,6 @@
-FROM gjigsaw/base:20160802-1700
-MAINTAINER Python-Dockerfile@JasonGreen.Name
-ENV PYTHON_IMAGE_BUILT_AFTER 20160802-1700
+FROM dgliwa/base:20201028
+LABEL maintainer="Python-Dockerfile@DerekGliwa.Name"
+ENV PYTHON_IMAGE_BUILT_AFTER 20201028
 
 # 2
 RUN apt-get install -y \

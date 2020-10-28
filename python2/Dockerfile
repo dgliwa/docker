@@ -1,6 +1,6 @@
-FROM gjigsaw/base:20190829-1700
-MAINTAINER Python2-Dockerfile@JasonGreen.Name
-ENV PYTHON2_IMAGE_BUILT_AFTER 20190829-1700
+FROM dgliwa/base:20201028
+LABEL maintainer="Python2-Dockerfile@DerekGliwa.Name"
+ENV PYTHON2_IMAGE_BUILT_AFTER 20201028
 
 RUN apt-get install -y \
     python \

@@ -1,6 +1,6 @@
-FROM gjigsaw/python:20160802-1700
-MAINTAINER Flask-Dockerfile@JasonGreen.Name
-ENV HW_FLASK_IMAGE_BUILT_AFTER 20160803-0800
+FROM dgliwa/python:20201028
+LABEL maintainer="Flask-Dockerfile@DerekGliwa.Name"
+ENV HW_FLASK_IMAGE_BUILT_AFTER 20201028
 
 RUN pip install Flask==0.10.1
 

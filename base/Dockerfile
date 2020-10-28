@@ -1,6 +1,9 @@
 FROM ubuntu:latest
-MAINTAINER Base-Dockerfile@JasonGreen.Name
-ENV BASE_IMAGE_BUILT_AFTER 20190829-1700
+LABEL maintainer="Base-Dockerfile@DerekGliwa.Name"
+ENV BASE_IMAGE_BUILT_AFTER 20201028
+
+ENV DEBIAN_FRONTEND="noninteractive"
+ENV TZ="America/Los_Angeles"
 
 # Update & Upgrade
 RUN apt-get update -y; \
@@ -15,7 +18,6 @@ RUN apt-get install -y \
 
 # Editors
 RUN apt-get install -y \
-    emacs-nox \
     vim
 
 # File transport
@@ -41,7 +43,7 @@ RUN apt-get install -y \
 
 # Locale
 RUN apt-get install -y locales \
-  && locale-gen en_US.UTF-8
+    && locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8

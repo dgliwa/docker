@@ -1,7 +1,7 @@
 function firefox_in_docker() {
     docker run \
        --shm-size 2g \
-       gjigsaw/firefox:20190826-1700 \
+       dgliwa/firefox:20190826-1700 \
        $@
 }
 alias ffid=firefox_in_docker

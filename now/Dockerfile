@@ -1,52 +1,44 @@
-FROM gjigsaw/base:20170924-1200
-MAINTAINER Now-Dockerfile@JasonGreen.Name
-ENV NOW_IMAGE_BUILT_AFTER 20170924-1200
+FROM dgliwa/base:20201028
+LABEL maintainer="Now-Dockerfile@DerekGliwa.NOW_IMAGE_BUILT_AFTER"
+ENV NOW_IMAGE_BUILT_AFTER 20201028
 
-ENV PACKER_VERSION=1.1.0 \
-    TERRAFORM_VERSION=0.10.6 \
-    DC_VERSION=1.16.1
-    
-# Install Packer
-RUN export BASE_URL=https://releases.hashicorp.com/packer \
- && export ZIP=packer_${PACKER_VERSION}_linux_amd64.zip \
- && export URL=$BASE_URL/$PACKER_VERSION/$ZIP \
- && wget -q -O $ZIP $URL \
- && unzip $ZIP -d /usr/local/bin/ \
- && rm $ZIP
+ENV DC_VERSION=1.27.4
 
-# Install Terraform
-RUN export BASE_URL=https://releases.hashicorp.com/terraform \
- && export ZIP=terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
- && export URL=$BASE_URL/$TERRAFORM_VERSION/$ZIP \
- && wget -q -O $ZIP $URL \
- && unzip $ZIP -d /usr/local/bin/ \
- && rm $ZIP
+RUN apt-get install -y \
+     apt-transport-https \
+     ca-certificates \
+     software-properties-common
+
+
+# Install Packer and Terraform
+RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - \
+     && add-apt-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
+     && apt-get update && apt-get install -y \
+     packer terraform
+
 
 # Setup Docker Repository
-RUN echo "Installing packages to allow apt to use a repository over HTTPS:" \
- && sudo apt-get install -y \
-      apt-transport-https \
-      ca-certificates \
-      software-properties-common \
- && echo "Adding Docker’s official GPG key:" \
- && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
- && sudo apt-key fingerprint 0EBFCD88 \
- && sudo add-apt-repository \
-      "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-      $(lsb_release -cs) \
-      stable" \
- && sudo apt-get update
+RUN apt-get remove docker docker-engine docker.io containerd runc || true\
+     && echo "Adding Docker’s official GPG key:" \
+     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
+     && apt-key fingerprint 0EBFCD88 \
+     && add-apt-repository \
+     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+     $(lsb_release -cs) \
+     stable" \
+     && apt-get update
 
 # Install Docker CE
-RUN sudo apt-get install -y \
-      docker-ce
+RUN apt-get install -y \
+     docker-ce docker-ce-cli containerd.io
+
 
 # Install Docker-Compose
 RUN export DC_URL_PREFIX="https://github.com/docker/compose/releases/download" \
- && export DC_URL_SUFFIX="docker-compose-Linux-x86_64" \
- && export DC_URL=${DC_URL_PREFIX}/${DC_VERSION}/${DC_URL_SUFFIX} \
- && sudo curl -L "${DC_URL}" -o /usr/local/bin/docker-compose \
- && sudo chmod +x /usr/local/bin/docker-compose
+     && export DC_URL_SUFFIX="docker-compose-Linux-x86_64" \
+     && export DC_URL=${DC_URL_PREFIX}/${DC_VERSION}/${DC_URL_SUFFIX} \
+     && curl -L "${DC_URL}" -o /usr/local/bin/docker-compose \
+     && chmod +x /usr/local/bin/docker-compose
 
 VOLUME /data
 WORKDIR /data
