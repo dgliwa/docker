@@ -1,6 +1,5 @@
 function now() {
     #    --env DOCKER_CERT_PATH="/root/.docker/machine/machines/dvb" \
-	#--env TF_LOG="$TF_LOG" \
 	#--env AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" \
 	#--env AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" \
         #--env DOCKER_HOST="tcp://192.168.99.100:2376" \
@@ -9,10 +8,11 @@ function now() {
     docker run \
 	--rm \
 	-it \
+	--env TF_LOG="$TF_LOG" \
 	--volume "$(pwd):/data" \
 	--volume /var/run/docker.sock:/var/run/docker.sock \
 	--volume "/home/$(whoami)/.docker:/root/.docker" \
-	dgliwa/now:20201028 \
+	dgliwa/now:20201030 \
 	"$@"
 }
 

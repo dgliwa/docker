@@ -1,6 +1,6 @@
 FROM dgliwa/base:20201028
 LABEL maintainer="Now-Dockerfile@DerekGliwa.NOW_IMAGE_BUILT_AFTER"
-ENV NOW_IMAGE_BUILT_AFTER 20201028
+ENV NOW_IMAGE_BUILT_AFTER 20201030
 
 ENV DC_VERSION=1.27.4
 
@@ -15,6 +15,15 @@ RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - \
      && add-apt-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
      && apt-get update && apt-get install -y \
      packer terraform
+
+# Install azure cli
+RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | \
+     gpg --dearmor | \
+     tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null \
+     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -cs) main"| \
+     tee /etc/apt/sources.list.d/azure-cli.list \
+     && apt-get update \
+     && apt-get install -y azure-cli
 
 
 # Setup Docker Repository
