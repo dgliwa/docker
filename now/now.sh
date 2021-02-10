@@ -10,9 +10,11 @@ function now() {
 	-it \
 	--env TF_LOG="$TF_LOG" \
 	--volume "$(pwd):/data" \
+	--volume "/home/$(whoami)/.azure:/root/.azure" \
+	--volume "/home/$(whoami)/.ssh:/root/.ssh" \
 	--volume /var/run/docker.sock:/var/run/docker.sock \
 	--volume "/home/$(whoami)/.docker:/root/.docker" \
-	dgliwa/now:20201030 \
+	dgliwa/now:20210210 \
 	"$@"
 }
 
