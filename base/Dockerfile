@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 LABEL maintainer="Base-Dockerfile@DerekGliwa.Name"
-ENV BASE_IMAGE_BUILT_AFTER 20210210
+ENV BASE_IMAGE_BUILT_AFTER 20210216
 
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV TZ="America/Los_Angeles"

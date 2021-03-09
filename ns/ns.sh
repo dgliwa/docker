@@ -6,15 +6,11 @@ function ns() {
 	#--env DOCKER_TLS_VERIFY="1" \
 	#--env DOCKER_MACHINE_NAME="dvb" \
 
-    ns_cmd=$(cat <<-_EOT_
-	docker run 
-	--rm 
-	-it 
-	--volume "$(pwd):/data" 
-	--volume "/home/$(whoami)/.suitecloud-sdk:/root/.suitecloud-sdk" 
-	dgliwa/ns:20210210 
+	docker run \
+	--rm \
+	-it \
+	--volume "$(pwd):/data" \
+	--volume "/home/$(whoami)/.suitecloud-sdk:/root/.suitecloud-sdk" \
+	dgliwa/ns:20210210 \
 	suitecloud $@
-	_EOT_
-	)
-	eval $ns_cmd
 }
